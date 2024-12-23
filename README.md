@@ -1,16 +1,10 @@
-# 狗狗行為模式辨識系統 - 系統環境圖
+# 狗狗行為模式辨識系統 - 資料流程圖 (DFD)
 
 ```mermaid
 graph TD
-    User[使用者]
-    Camera[攝像頭設備] --> System[影像辨識系統]
-    File[上傳的影片檔案] --> System
-    System --> AI[行為辨識模型]
-    AI --> Database[數據庫]
-    AI --> Notification[通知系統]
-    Notification --> User
-    Database --> Analysis[行為數據分析]
-    Analysis --> Report[報表生成]
-    User -->|查看報表| Report
-    System --> Cloud[雲端服務]
-    Cloud --> Backup[數據備份系統]
+    A[影像資料輸入] -->|攝像頭/檔案上傳| B[影像處理]
+    B --> |特徵擷取| C[AI 模型辨識]
+    C --> |輸出行為模式| D[數據庫儲存]
+    C --> E[即時通知系統]
+    D --> |數據分析| F[報表生成]
+    E --> |推送訊息| G[用戶端應用]
